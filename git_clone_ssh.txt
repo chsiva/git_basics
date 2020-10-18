@@ -1,0 +1,12 @@
+cd ~/.ssh
+ 1061  ls
+ 1062  ssh-keyhgen
+ 1063  ssh-keygen
+ 1064  ls
+ 1065  cat id_rsa.pub
+ 1066  pwd
+ 1067  cd ..
+ 1068  ls
+ 1069  cd git_practise
+ 1070  ls
+ 1071  git clone git@github.com:chsiva/git_basics.git
