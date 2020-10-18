@@ -1,8 +1,11 @@
  mkdir git_basics
  cd git_basics
+ git init
  git >> readme.md. " adding readme file in local through command line
  git status
  git add readme.md
  git status
  git commit -m "adding readme"
  git status
+ git remote add origin https://github.com/chsiva/git_basics.git
+ git push -u origin master
