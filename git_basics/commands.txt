@@ -1,16 +1,8 @@
-  810  clear
-  811  rm -rf Terraform
-  812  ls
-  813  ls
-  814  clea
-  815  clear
-  816  mkdir git_basics
-  817  ls
-  818  cd git_basics
-  819  ls
-  820  git >> readme.md
-  821  git add readme.md
-  822  ls
-  823  git status
-  824  git commit -m "adding readme"
-  825  ls
+ mkdir git_basics
+ cd git_basics
+ git >> readme.md. " adding readme file in local through command line
+ git status
+ git add readme.md
+ git status
+ git commit -m "adding readme"
+ git status
