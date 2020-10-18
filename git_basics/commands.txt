@@ -1,21 +1,14 @@
 # git clone to push changes to remote
+git clone https://github.com/chsiva/git_basics.git
+cd git_basics
+vi readme.md
+git status
+git add readme.md
+git status
+git commit -m "commented"
+git status
+git push -u origin master
 
-844  ls
-  845  rm -rf git_basics
-  846  ls
-  847  git clone https://github.com/chsiva/git_basics.git
-  848  ls
-  849  cd git_basics
-  850  ls
-  851  cd git_basics
-  852  ls
-  853  ls
-  854  vi readme.md
-  855  git status
-  856  git add readme.md
-  857  git status
-  858  git commit -m "commented"
-  859  git status
 
 # adding new repo
 
