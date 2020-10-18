@@ -9,3 +9,7 @@ It's usually "only used once for a given repository, unless you want to have mul
 
 # git pull (or git fetch + git merge) 
 is how you "update that local copy with new commits" from the remote repository. If you are collaborating with others, it is a command that you will run frequently.
+
+# git clone with ssh vs clone with https
+with https no need any authentication
+with ssh we need authenticate -> generate ssh keys in local -> copy rsa.pub -> paste it in github/settings/ssh-key
