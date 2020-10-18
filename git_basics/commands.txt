@@ -1,7 +1,30 @@
 
-# git clone to push changes to remote
+# git clone to push changes to remote master branch
 git clone https://github.com/chsiva/git_basics.git
 cd git_basics
+vi readme.md
+git status
+git add readme.md
+git status
+git commit -m "commented"
+git status
+git push -u origin master
+
+# git clone to push changes to remote branch
+git clone https://github.com/chsiva/git_basics.git
+cd git_basics
+git branch <branch-name>
+git checkout <branch-name>
+git branch --show-current
+vi readme.md
+git status
+git add readme.md
+git status
+git commit -m "commented"
+git status
+git push -u origin <branch-name>
+
+
 vi readme.md
 git status
 git add readme.md
