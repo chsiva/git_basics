@@ -1,11 +1,16 @@
- mkdir git_basics
- cd git_basics
- git init
- git >> readme.md. " adding readme file in local through command line
- git status
- git add readme.md
- git status
- git commit -m "adding readme"
- git status
- git remote add origin https://github.com/chsiva/git_basics.git
- git push -u origin master
+  844  ls
+  845  rm -rf git_basics
+  846  ls
+  847  git clone https://github.com/chsiva/git_basics.git
+  848  ls
+  849  cd git_basics
+  850  ls
+  851  cd git_basics
+  852  ls
+  853  ls
+  854  vi readme.md
+  855  git status
+  856  git add readme.md
+  857  git status
+  858  git commit -m "commented"
+  859  git status
