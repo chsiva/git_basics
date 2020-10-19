@@ -1,3 +1,11 @@
+# git ( initialing git repo and adding or creating files inside git repo
+git init
+git add <filename>
+  
+# check below link for basic git commands with usage
+  
+https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
+
 # git pull
 git pull will changes that are done in remote/central repo
 
