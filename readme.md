@@ -2,6 +2,7 @@
 git pull will changes that are done in remote/central repo
 
 # git fetch
+git fetch will retrieve the latest meta-data info from the original. It's more like just checking to see if there are any changes available)
 
 # git clone 
 is how you "get a local copy" of an existing repository "to work on". 
