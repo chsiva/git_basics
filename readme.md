@@ -13,3 +13,6 @@ is how you "update that local copy with new commits" from the remote repository.
 # git clone with ssh vs clone with https
 with https no need any authentication
 with ssh we need authenticate -> generate ssh keys in local -> copy rsa.pub -> paste it in github/settings/ssh-key
+
+# Forking
+A fork is a copy of a repository that allows you to freely experiment with changes without affecting the original project.
