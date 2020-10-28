@@ -1,0 +1,2 @@
+sudo yum install update
+sudo yum install git
