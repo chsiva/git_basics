@@ -25,3 +25,6 @@ with ssh we need authenticate -> generate ssh keys in local -> copy rsa.pub -> p
 
 # Forking
 A fork is a copy of a repository that allows you to freely experiment with changes without affecting the original project.
+
+# SSl Certificate Issue
+https://stackoverflow.com/questions/11621768/how-can-i-make-git-accept-a-self-signed-certificate
