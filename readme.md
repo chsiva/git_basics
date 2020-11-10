@@ -31,7 +31,11 @@ A fork is a copy of a repository that allows you to freely experiment with chang
 # SSl Certificate Issue
 https://stackoverflow.com/questions/11621768/how-can-i-make-git-accept-a-self-signed-certificate
 
-# merge conflicts https://dev.to/samuyi/how-to-avoid-merge-conflicts-3j8d
-Solution 
-create a new branch -> do merge locally -> create new PR
+# Avoid "merge conflicts" https://dev.to/samuyi/how-to-avoid-merge-conflicts-3j8d
+Solution:
+
+*create a new branch* -> in local CLI create a repo and clone the repo here -> git checkout <new-branch> ->
+download & install "Meld" (file comparision tool) https://meldmerge.org/. ->
+
+*do merge locally* -> *create new PR*
 
