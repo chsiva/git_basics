@@ -32,5 +32,6 @@ A fork is a copy of a repository that allows you to freely experiment with chang
 https://stackoverflow.com/questions/11621768/how-can-i-make-git-accept-a-self-signed-certificate
 
 # merge conflicts https://dev.to/samuyi/how-to-avoid-merge-conflicts-3j8d
-we can do merge locally 
+Solution 
+create a new branch -> do merge locally -> create new PR
 
