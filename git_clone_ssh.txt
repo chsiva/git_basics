@@ -1,6 +1,6 @@
 cd ~/.ssh
 ssh-keyhgen
 cat id_rsa.pub
-copy public key and paste in your github account -> settings -> ssh and gpg keys
+copy public key and paste in your github account -> settings -> ssh and gpg keys  -> paste ssh key and save
 cd git_practise
 git clone git@github.com:chsiva/git_basics.git
