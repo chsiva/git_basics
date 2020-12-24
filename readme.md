@@ -39,3 +39,7 @@ download & install "Meld" (file comparision tool) https://meldmerge.org/. ->
 
 *do merge locally* -> *create new PR*
 
+# clone specific branch 
+git clone -b <branch-name> <remote_repo_url>
+
+
