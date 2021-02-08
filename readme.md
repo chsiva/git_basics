@@ -26,6 +26,26 @@ with ssh we need authenticate -> generate ssh keys in local -> copy rsa.pub -> p
 # Forking
 A fork is a copy of a repository that allows you to freely experiment with changes without affecting the original project.
 
+# git rebase
+
+It's simple. With rebase you say to use another branch as the new base for your work.
+
+If you have, for example, a branch master, you create a branch to implement a new feature, and say you name it cool-feature, of course the master branch is the base for your new feature.
+
+Now at a certain point you want to add the new feature you implemented in the master branch. You could just switch to master and merge the cool-feature branch:
+
+$ git checkout master
+$ git merge cool-feature
+But this way a new dummy commit is added. If you want to avoid spaghetti-history you can rebase:
+
+$ git checkout cool-feature
+$ git rebase master
+And then merge it in master:
+
+$ git checkout master
+$ git merge cool-feature
+
+
 # git squash
 
 # SSl Certificate Issue
