@@ -1,3 +1,6 @@
+# avoid merge conflicts
+https://geshan.com.np/blog/2016/04/3-simple-rules-for-less-or-no-git-conflicts/
+
 # git ( initialing git repo and adding or creating files inside git repo
 git init
 git add <filename>
