@@ -50,6 +50,8 @@ $ git merge cool-feature
 
 
 # git squash
+For example, assume that you have a series of n commits.
+By squashing you can make all the n-commits to a single commit.
 
 # SSl Certificate Issue
 https://stackoverflow.com/questions/11621768/how-can-i-make-git-accept-a-self-signed-certificate
