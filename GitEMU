@@ -14,3 +14,55 @@
 | **Open Source**               | Mostly closed source                          | GitLab CE (Community Edition) is open source                        |
 | **Self-hosting**              | Partial (runners only)                        | Full self-hosted GitLab instance possible                           |
 
+
+my-repo/
+└── .github/
+    └── workflows/
+        ├── test.yml
+        ├── deploy.yml
+        └── lint.yml
+
+| Limit Type                  | Maximum Allowed             |
+| --------------------------- | --------------------------- |
+| **Total jobs per workflow** | **256 jobs**                |
+| **Total steps per job**     | 2,000 steps                 |
+| **Max run time per job**    | 6 hours (depending on plan) |
+| **Artifacts per workflow**  | 100 artifacts               |
+| **Matrix job combinations** | 256 (max matrix expansion)  |
+| **Concurrent jobs**         | Varies by plan (see below)  |
+
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+
+| Trigger             | Description                                         | Manual / Auto | Common Use Cases                         | Supports Inputs |
+| ------------------- | --------------------------------------------------- | ------------- | ---------------------------------------- | --------------- |
+| `push`              | Runs on `git push` to specified branches/tags       | 🚀 Automatic  | Run CI on every code push                | ❌               |
+| `pull_request`      | Runs when a PR is opened, synchronized, or reopened | 🚀 Automatic  | Validate PRs before merging              | ❌               |
+| `schedule`          | Runs on a cron schedule (UTC time)                  | 🕒 Automatic  | Nightly builds, dependency updates       | ❌               |
+| `workflow_dispatch` | Runs only when manually triggered via GitHub UI/API | ✅ Manual      | On-demand tests, deployments, patch jobs | ✅ Yes           |
