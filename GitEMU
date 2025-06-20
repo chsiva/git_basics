@@ -32,6 +32,17 @@ my-repo/
 | **Concurrent jobs**         | Varies by plan (see below)  |
 
 
+| Concept       | What It Is                                                                                              | Example                                                                        |
+| ------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **`jobs`**    | Top-level units of work that run independently or in sequence. Each job runs in a separate environment. | `yaml<br>jobs:<br>  build:<br>    runs-on: ubuntu-latest<br>`                  |
+| **`steps`**   | Instructions within a job that run **in order**. Can be shell commands or actions.                      | `yaml<br>steps:<br>  - run: echo "Hello"<br>  - uses: actions/checkout@v4<br>` |
+| **`runs-on`** | Specifies the **runner environment** (e.g., Ubuntu, Windows, macOS) for a job.                          | `yaml<br>runs-on: ubuntu-latest<br>`                                           |
+| **`uses`**    | Invokes a prebuilt **action** from GitHub Marketplace or a local/custom action.                         | `yaml<br>- uses: actions/checkout@v4<br>`                                      |
+| **`env`**     | Sets **environment variables** for jobs or steps. Can be reused in commands.                            | `yaml<br>env:<br>  NODE_ENV: production<br>`                                   |
+| **`secrets`** | Secure values (e.g., API keys, tokens) stored in repo or org settings. Accessed using `secrets.*`.      | `yaml<br>env:<br>  API_KEY: ${{ secrets.MY_API_KEY }}<br>`                     |
+
+
+
 name: CI
 
 on:
