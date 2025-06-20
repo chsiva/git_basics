@@ -1,7 +1,25 @@
-GitHub upgrades - To ensure you benefit from latest security patches, features, and bug fixes while minimizing  the potential disruption of larger version jumps.
+# Why GitHub upgrades - 
+ To ensure you benefit from latest security patches, features, and bug fixes while minimizing  the potential disruption of larger version jumps.
 
+# what actions when we upgarde GitLab servers
+  Most helpful actions include : backup craetion > testing lower environment > following recommended upgrade Path > utilizing maintenance mode during the upgrade > carefully managing backups> rollback plan in case of any issues > essentially planning and controlled process to minimize downtime and potential disruptions to user
+
+  Inform users via communication channel on GitHub channel  ( broadcast messages )
+  enable maintainence mode > backup> Stop repilica mode > download package and upgrade ( ghe-upgrade)
+  ghe-cluster-maintanence -s
+  ghe-cluster-staus
+  curl -L -O <packege>
+  ghe-upgarde <package>
+
+# hostnamectl > linux (os type and version)
+# Github servers are cluster ( mutliple nodes - have moth primary and secondary) ?
+# server disk size >  Dev ( 300 G ) ||  Prod (3 TB)
+
+ 
 
 # avoid merge conflicts
+
+Each developer should clone repo, before any change to the branch, developer should perform pull operation > Any new changes should be fetched and 
 
 
 https://geshan.com.np/blog/2016/04/3-simple-rules-for-less-or-no-git-conflicts/
