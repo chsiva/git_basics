@@ -1,1 +1,16 @@
+| Feature                       | **GitHub Actions**                            | **GitLab CI/CD**                                                    |
+| ----------------------------- | --------------------------------------------- | ------------------------------------------------------------------- |
+| **Platform**                  | Part of GitHub                                | Part of GitLab                                                      |
+| **CI/CD Integration**         | Built-in automation with `.github/workflows/` | Built-in with `.gitlab-ci.yml`                                      |
+| **Pipeline Model**            | Workflow → Job(s) → Step(s)                   | Pipeline → Stage(s) → Job(s)                                        |
+| **Triggers**                  | Events (push, PR, schedule, etc.)             | Events (push, merge request, schedule, etc.)                        |
+| **Runner Types**              | GitHub-hosted & self-hosted runners           | GitLab-hosted & self-hosted runners                                 |
+| **Ease of Use**               | Simple YAML syntax; marketplace actions       | Mature syntax; integrated with GitLab UI                            |
+| **Marketplace**               | ✅ 25,000+ reusable Actions available          | ❌ No centralized marketplace (reusable jobs via includes/templates) |
+| **Container/Service Support** | Docker support built-in                       | Excellent Docker and Kubernetes support                             |
+| **Caching & Artifacts**       | Supported (manual configuration)              | More mature & easier caching/artifact features                      |
+| **Monorepo Support**          | Decent (manual workflows)                     | Strong monorepo support (rules, includes)                           |
+| **Security Features**         | OIDC, Secrets, Approvals                      | OIDC, Secrets, Protected Envs, Runner isolation                     |
+| **Open Source**               | Mostly closed source                          | GitLab CE (Community Edition) is open source                        |
+| **Self-hosting**              | Partial (runners only)                        | Full self-hosted GitLab instance possible                           |
 
