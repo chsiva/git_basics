@@ -1,4 +1,9 @@
+GitHub upgrades - To ensure you benefit from latest security patches, features, and bug fixes while minimizing  the potential disruption of larger version jumps.
+
+
 # avoid merge conflicts
+
+
 https://geshan.com.np/blog/2016/04/3-simple-rules-for-less-or-no-git-conflicts/
 
 # git ( initialing git repo and adding or creating files inside git repo
