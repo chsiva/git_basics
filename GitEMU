@@ -95,7 +95,11 @@ jobs:
     - Log files
     - Coverage reports
 
-
+# Why Use Caching in Workflows?
+  Caching reduces:
+    - Dependency installation time (e.g., npm install, pip install, maven install)
+    - Rebuilding or re-downloading large files
+    - CI/CD costs (faster builds = fewer compute minutes)
 
 
 | Feature                       | **GitHub Actions**                            | **GitLab CI/CD**                                                    |
