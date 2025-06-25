@@ -1,3 +1,13 @@
+GitHub Actions: CI/CD where you can build, test and deploy on specified Runners
+                Automates workflows triggered by GitHub events (push, PR, schedule, etc.).
+                Uses YAML files to define jobs and steps in workflows.
+
+Workflows : A workflow is a configurable automated process that will run one or more jobs.
+Jobs: A set of steps run sequentially on the same runner
+Steps: Individual task within a job (e.g., run a script, checkout code).
+
+
+
 | Feature                       | **GitHub Actions**                            | **GitLab CI/CD**                                                    |
 | ----------------------------- | --------------------------------------------- | ------------------------------------------------------------------- |
 | **Platform**                  | Part of GitHub                                | Part of GitLab                                                      |
