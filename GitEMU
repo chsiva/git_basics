@@ -31,8 +31,58 @@ branches:
 
 # How can you reuse code or workflows in GitHub Actions?
   1. Reusable Workflow (.github/workflows/reusable.yml)
+  2. Use workflow_call event to call reusable workflows
+     name: Reusable Workflow  
+       on:
+         workflow_call:
+     jobs:
+       call-reusable:
+          uses: ./.github/workflows/reusable.yml
 
+| Feature                   | Composite Actions (using: "composite")   | Reusable Workflows (`workflow_call`)     |
+| ------------------------- | ---------------------------------------- | ---------------------------------------- |
+| Purpose                   | Reuse a sequence of steps in **one job** | Reuse **entire workflows or jobs**       |
+| YAML Location             | `.github/actions/my-action/action.yml`   | `.github/workflows/reusable.yml`         |
+| Called with               | `uses: ./github/actions/my-action`       | `uses: ./.github/workflows/reusable.yml` |
+| Can define multiple jobs? | ❌ No                                     | ✅ Yes                                    |
+| Can access secrets?       | ✅ Yes                                    | ✅ Yes                                    |
+| Can run scripts?          | ✅ Yes (with `run:`)                      | ✅ Yes                                    |
+| Better for...             | Small, repeatable logic in one job       | Higher-level orchestration, full flows   |
 
+composite example 
+on: push
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/my-composite-action
+        with:
+          input_name: 'World'
+        id: my_composite_step
+      - name: Use output from composite action
+        run: echo "Output from composite action: ${{ steps.my_composite_step.outputs.output_name }}"
+
+# What is the difference between jobs.<job_id>.needs and jobs.<job_id>.strategy.matrix?
+  - needs: Defines job dependencies; a job waits for others to finish.
+  - strategy.matrix: Runs the same job with different configurations (e.g., different OS or language versions).
+
+# How do you handle failure or retry in GitHub Actions?
+  - Use continue-on-error to ignore step failures.
+  - Use if conditionals to run steps/jobs conditionally.
+  - Use jobs.<job_id>.timeout-minutes to limit execution time.
+  Currently, no native retry, but you can script retries or use marketplace actions.
+
+# How do you debug failed GitHub Actions runs?
+    - Check logs on GitHub Actions UI.
+    - Use ::debug:: commands in workflow scripts.
+    - Run workflows locally using tools like act.
+    - Add verbose logging in your scripts.
+
+10. How do you control access and permissions in GitHub Actions?
+   - Use repository and organization level actions policies.
+   - Control access to secrets and tokens.
+   - Use least privilege principle in workflow permissions.
 
 
 
