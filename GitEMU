@@ -8,7 +8,7 @@ Jobs: A set of steps run sequentially on the same runner
 Steps: Individual task within a job (e.g., run a script, checkout code).
 
 # How do you trigger a GitHub Actions workflow?
-  On GitHub events like push, pull_request, schedule, release, etc.
+  On GitHub events like push, pull_request, workflow_dispatch, schedule, release, etc.
   Can specify filters like branches, tags, or paths.
 on:
 push:
@@ -30,9 +30,7 @@ branches:
    - Can also set environment variables at workflow, job, or step level.
 
 # How can you reuse code or workflows in GitHub Actions?
-   Use composite actions to create reusable action steps.
-   Use workflow_call event to call reusable workflows.
-   Use action marketplace to consume existing community actions.
+  1. Reusable Workflow (.github/workflows/reusable.yml)
 
 
 
