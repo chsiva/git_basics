@@ -10,6 +10,14 @@ Steps: Individual task within a job (e.g., run a script, checkout code).
 # How do you trigger a GitHub Actions workflow?
   On GitHub events like push, pull_request, schedule, release, etc.
   Can specify filters like branches, tags, or paths.
+on:
+push:
+branches:
+ - main
+pull_request:
+branches:
+ - develop
+
 
 
 | Feature                       | **GitHub Actions**                            | **GitLab CI/CD**                                                    |
