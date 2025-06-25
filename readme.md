@@ -28,22 +28,13 @@ https://geshan.com.np/blog/2016/04/3-simple-rules-for-less-or-no-git-conflicts/
 git init
 git add <filename>
   
-# check below link for basic git commands with usage
-  
-https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
+| Command         | What it Does                                                             | Direction      | Common Use Case                                                        |
+| --------------- | ------------------------------------------------------------------------ | -------------- | ---------------------------------------------------------------------- |
+| **`git clone`** | Downloads an entire repository (including history) to your local system. | Remote → Local | First-time setup of a project on your machine.                         |
+| **`git fetch`** | Retrieves latest changes from the remote, but doesn’t merge them.        | Remote → Local | Check for new branches or commits without modifying your working code. |
+| **`git pull`**  | Fetches and merges the remote branch into your current local branch.     | Remote → Local | Update your local working branch with the latest from the team.        |
+| **`git push`**  | Uploads your commits from a local branch to the remote repository.       | Local → Remote | Share your changes with others. Usually follows a commit.              |
 
-# git pull
-git pull will changes that are done in remote/central repo
-
-# git fetch
-git fetch will retrieve the latest meta-data info from the original. It's more like just checking to see if there are any changes available)
-
-# git clone 
-is how you "get a local copy" of an existing repository "to work on". 
-It's usually "only used once for a given repository, unless you want to have multiple working copies of it around".
-
-# git pull (or git fetch + git merge) 
-is how you "update that local copy with new commits" from the remote repository. If you are collaborating with others, it is a command that you will run frequently.
 
 # git clone with ssh vs clone with https
 with https no need any authentication
