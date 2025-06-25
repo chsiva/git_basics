@@ -28,13 +28,25 @@ https://geshan.com.np/blog/2016/04/3-simple-rules-for-less-or-no-git-conflicts/
 git init
 git add <filename>
   
-| Command         | What it Does                                                             | Direction      | Common Use Case                                                        |
-| --------------- | ------------------------------------------------------------------------ | -------------- | ---------------------------------------------------------------------- |
-| **`git clone`** | Downloads an entire repository (including history) to your local system. | Remote → Local | First-time setup of a project on your machine.                         |
-| **`git fetch`** | Retrieves latest changes from the remote, but doesn’t merge them.        | Remote → Local | Check for new branches or commits without modifying your working code. |
-| **`git pull`**  | Fetches and merges the remote branch into your current local branch.     | Remote → Local | Update your local working branch with the latest from the team.        |
-| **`git push`**  | Uploads your commits from a local branch to the remote repository.       | Local → Remote | Share your changes with others. Usually follows a commit.              |
+| Command          | What It Does                                                                | Changes History   | Local/Remote   | When to Use                                         |
+| ---------------- | --------------------------------------------------------------------------- | ----------------- | -------------- | --------------------------------------------------- |
+| **`git clone`**  | Copies entire remote repo to your machine                                   | No                | Remote → Local | First time you're working with a repository         |
+| **`git fetch`**  | Downloads latest changes from remote, but doesn’t merge                     | No                | Remote → Local | To preview or inspect remote updates                |
+| **`git pull`**   | Fetches + merges remote branch into current local branch                    | Maybe (merge)     | Remote → Local | To bring in the latest code and automatically merge |
+| **`git merge`**  | Combines two branches (adds a merge commit unless it's fast-forward)        | Yes (adds commit) | Local          | To integrate changes from another branch            |
+| **`git rebase`** | Moves your branch's commits on top of another base (linear history)         | Yes (rewrites)    | Local          | To clean up history before merging                  |
+| **`git squash`** | Combines multiple commits into one (via interactive rebase or squash merge) | Yes (rewrites)    | Local          | To clean "WIP" commits before pushing or merging    |
 
+# use cases
+
+| Situation                                   | Recommended Command      |
+| ------------------------------------------- | ------------------------ |
+| First-time setup of repo                    | `git clone`              |
+| Check what’s new in remote                  | `git fetch`              |
+| Sync and merge updates from team            | `git pull`               |
+| Merge completed feature into main           | `git merge`              |
+| Make feature branch history clean before PR | `git rebase`             |
+| Collapse messy local commits into one       | `git rebase -i` (squash) |
 
 # git clone with ssh vs clone with https
 with https no need any authentication
