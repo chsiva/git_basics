@@ -39,6 +39,9 @@ branches:
        call-reusable:
           uses: ./.github/workflows/reusable.yml
 
+
+
+
 | Feature                   | Composite Actions (using: "composite")   | Reusable Workflows (`workflow_call`)     |
 | ------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Purpose                   | Reuse a sequence of steps in **one job** | Reuse **entire workflows or jobs**       |
@@ -79,10 +82,19 @@ jobs:
     - Run workflows locally using tools like act.
     - Add verbose logging in your scripts.
 
-10. How do you control access and permissions in GitHub Actions?
+# How do you control access and permissions in GitHub Actions?
    - Use repository and organization level actions policies.
    - Control access to secrets and tokens.
    - Use least privilege principle in workflow permissions.
+
+# Build artifacts In GitHub Actions, 
+   artifacts are files or data generated during a workflow run that you can save and share between jobs or download later. They're commonly used to store:
+
+    - Build outputs (e.g., compiled binaries, packages)
+    - Test results
+    - Log files
+    - Coverage reports
+
 
 
 
