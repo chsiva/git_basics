@@ -24,6 +24,7 @@ branches:
 
 
 # How do you pass secrets and environment variables in GitHub Actions?
+  On Repo settings > Actions secrets and variables
    - Use GitHub Secrets to store sensitive data securely.
    - Access secrets in workflow via ${{ secrets.SECRET_NAME }}.
    - Can also set environment variables at workflow, job, or step level.
