@@ -95,6 +95,13 @@ jobs:
     - Log files
     - Coverage reports
 
+    Local storage on runners (Temporary)
+      During a job:
+      Artifacts are temporarily stored on the runner’s local disk (e.g., /home/runner/work/repo-name/).
+      Once the job ends, the runner is destroyed, and the files are lost unless uploaded.
+
+
+
 # Why Use Caching in Workflows?
   Caching reduces:
     - Dependency installation time (e.g., npm install, pip install, maven install)
