@@ -55,6 +55,18 @@ with ssh we need authenticate -> generate ssh keys in local -> copy rsa.pub -> p
 # Forking
 A fork is a copy of a repository that allows you to freely experiment with changes without affecting the original project.
 
+#Branch protection rules
+
+  - File [ Place the CODEOWNERS file in the root, .github/, or docs/ folder.]
+    You can use GitHub usernames (@username) or team handles (@org/team-name).
+  - Manually [ Open settings on Repo > Branches > Add Branch Protection Rule ]
+  
+
+  Combine branch protection rules with CI/CD pipelines to ensure quality.
+
+  Use code owners to automatically request reviews from specific teams.
+
+  Review rules periodically to match team workflow changes.
 # git rebase
 
 It's simple. With rebase you say to use another branch as the new base for your work.
