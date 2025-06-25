@@ -18,6 +18,23 @@ pull_request:
 branches:
  - develop
 
+# What runners are available in GitHub Actions?
+  - GitHub-hosted runners: Provided by GitHub, pre-configured VM images (Linux, Windows, macOS).
+  - Self-hosted runners: Your own machines/servers you configure to run workflows.
+
+
+# How do you pass secrets and environment variables in GitHub Actions?
+   - Use GitHub Secrets to store sensitive data securely.
+   - Access secrets in workflow via ${{ secrets.SECRET_NAME }}.
+   - Can also set environment variables at workflow, job, or step level.
+
+# How can you reuse code or workflows in GitHub Actions?
+   Use composite actions to create reusable action steps.
+   Use workflow_call event to call reusable workflows.
+   Use action marketplace to consume existing community actions.
+
+
+
 
 
 | Feature                       | **GitHub Actions**                            | **GitLab CI/CD**                                                    |
