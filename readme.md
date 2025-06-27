@@ -1,20 +1,23 @@
 # Git certificate Management
-Go to venafi > get .pfx file > download >  upload ( winscp) to git server > use open ssl command to create pem key
-once pem key > login to git siteadmin > management console > Authentication > upload pemkey
-
-Note:  pfx is a secure pkcs#12 file with password protected - commonly used for securely export and import privare keys
+     Go to venafi
+     get .pfx file
+     download
+     upload ( winscp) to git server
+     use open ssl command to create pem key
+     once pem key > login to git siteadmin > management console > Authentication > upload pemkey
+     Note:  pfx is a secure pkcs#12 file with password protected - commonly used for securely export and import privare keys
 
 
 # Why GitHub upgrades - 
- To ensure you benefit from latest security patches, features, and bug fixes while minimizing the potential disruption of larger version jumps.
+    To ensure you benefit from latest security patches, features, and bug fixes while minimizing the potential disruption of larger version jumps.
 
 # what actions when we upgarde Git servers
-  Most helpful actions include : 
+    Most helpful actions include : 
     Backup craetion > testing lower environment > following recommended upgrade Path > utilizing maintenance mode during the upgrade > carefully managing backups> rollback plan in    case of any issues > essentially planning and controlled process to minimize downtime and potential disruptions to user
 
   
   
-  enable maintainence mode > backup > Stop repilica mode > download package and upgrade ( ghe-upgrade)
+ 
   
   ghe-cluster-maintanence -s
   ghe-cluster-staus
@@ -26,15 +29,19 @@ Note:  pfx is a secure pkcs#12 file with password protected - commonly used for 
   Actions to perform before change implement to save time and maintian communication with users/teams
 
      sanapshot/backup request
-     check diskspace is > 15% $df -h 
-     download package from nexus
+     check diskspace is > 15% # $df -h ()
+     download package from nexus # curl -L -O <packege> [ size of pkg ranges from 7 -10 GB ]
      Inform users via communication channel on GitHub channel
   
-  Actions to perform to implement upgrade
-     - Take snapshot (backup)
-     - enable maintainence mode
-     - stop replica mode ( cluster - multi nodes)
-     - upgarde package
+Actions to perform to implement upgrade
+
+     - Take snapshot/backup
+     - enable maintainence mode # ghe-cluster-maintanence -s
+     - check cluster status ghe-cluster-staus 
+     - stop replica mode ( cluster - multi nodes) # ghe-replica-stop
+     - upgarde package ghe-upgarde <package-url.pkg
+     - upgrade in Dev taken 15 mins & 5 mins to reboot
+     - upgrade in Pr5od taken 15 mins & 5 mins to reboot
      
      
      
