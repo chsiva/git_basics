@@ -90,24 +90,25 @@ A fork is a copy of a repository that allows you to freely experiment with chang
   Use code owners to automatically request reviews from specific teams.
 
   Review rules periodically to match team workflow changes.
+
+  
 # git rebase
 
-It's simple. With rebase you say to use another branch as the new base for your work.
+Always be mindful of the "Golden Rule of Rebasing": never rebase commits that have been pushed to a shared repository.
 
-If you have, for example, a branch master, you create a branch to implement a new feature, and say you name it cool-feature, of course the master branch is the base for your new feature.
-
-Now at a certain point you want to add the new feature you implemented in the master branch. You could just switch to master and merge the cool-feature branch:
-
-$ git checkout master
-$ git merge cool-feature
-But this way a new dummy commit is added. If you want to avoid spaghetti-history you can rebase:
-
-$ git checkout cool-feature
-$ git rebase master
-And then merge it in master:
-
-$ git checkout master
-$ git merge cool-feature
+Is this means it is only used for non shared repos
+That's a key point to understand, and your phrasing highlights the important distinction between git rebase and git pull (merge) in a collaborative environment. 
+git rebase for local cleanup/history rewriting: git rebase is primarily used on branches that haven't been shared yet. This allows you to clean up your local commit history (e.g., squashing small commits into one, reordering commits) before pushing them to a shared repository.
+git pull (merge) for shared branch updates: When working on a shared branch (a branch that other developers have access to and are working on), you should use git pull (merge) to incorporate changes from the remote repository. This preserves the history of the shared branch and avoids causing problems for your collaborators. 
+Why rebasing shared branches is problematic:
+Rewriting history: When you rebase a shared branch, you are effectively creating new commits and overwriting the existing history.
+Conflicting histories: If your collaborators have based their work on the original commits, their local histories will diverge from the rebased branch. This can lead to complex merge conflicts and confusion when they try to pull the rebased changes.
+Force pushing: You might need to use git push --force to update the remote branch after rebasing. This can overwrite other developers' work, potentially leading to lost changes. 
+In essence:
+Rebasing is for rewriting history on private or local branches.
+Merging is for integrating changes on shared or public branches. 
+Exception:
+You might rebase a shared branch if everyone on the team is aware of it and understands the potential implications. However, this requires careful coordination and communication among team members. 
 
 
 # git squash
