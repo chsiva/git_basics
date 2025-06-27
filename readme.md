@@ -118,9 +118,18 @@ By squashing you can make all the n-commits to a single commit.
 https://stackoverflow.com/questions/11621768/how-can-i-make-git-accept-a-self-signed-certificate
 
 # Avoid "merge conflicts" https://dev.to/samuyi/how-to-avoid-merge-conflicts-3j8d
-Solution:
+* Solution: 
+  - Each developer should clone repo
+  - before merging they need to check for changes in remote brach > git pull to ensure for any changes by other developer
+  - if there are any changes dev should merge
+  - Test locally and then make a PR
 
-*create a new branch* -> in local CLI create a repo and clone the repo here -> git checkout <new-branch> ->
+
+
+
+*create a new branch* -> in local CLI create a repo and clone the repo here -> 
+git checkout <new-branch> ->
+
 download & install "Meld" (file comparision tool) https://meldmerge.org/. ->
 
 *do merge locally* -> *create new PR*
