@@ -77,7 +77,9 @@
         - clone repo and pass token using httpsurl
         - repo access is controlled via ad groups and user should be member of it
         - Even user is member already but group is not synched with repo or proper permisisons were not setup
-            not synched adgroup with repo > 
+            not synched adgroup with repo > Github synching tool to be installed under apps
+            once New org created - Team will get notified on Teams channel 
+            
 
 
             
