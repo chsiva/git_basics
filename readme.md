@@ -57,7 +57,8 @@ Here's the key difference:
    - Fetches and merges: git pull is a combination of two commands: git fetch and git merge.
    - Creates merge commits: By default, it fetches the latest changes from the remote and then merges them into your current branch. This process creates a new "merge commit" to            combine the histories of both branches.
    - Non-linear history: The merge commits result in a non-linear commit history, which shows how branches diverged and converged.
-   - Preserves history: This approach preserves the complete history, including all merge commits. 
+   - Preserves history: This approach preserves the complete history, including all merge commits.
+     
  git rebase (or git pull --rebase):
    - Rewrites history: git rebase moves or combines a sequence of commits to a new base commit.
    - Applies changes on top: It takes your local commits and reapplies them on top of the latest commit from the target branch (e.g., the remote's main branch).
