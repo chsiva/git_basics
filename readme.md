@@ -79,7 +79,7 @@ A fork is a copy of a repository that allows you to freely experiment with chang
 
 
 
-#Branch protection rules
+# Branch protection rules
 
   - File [ Place the CODEOWNERS file in the root, .github/, or docs/ folder.]
     You can use GitHub usernames (@username) or team handles (@org/team-name).
