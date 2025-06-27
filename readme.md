@@ -1,15 +1,43 @@
+# Git certificate Management
+Go to venafi > get .pfx file > download >  upload ( winscp) to git server > use open ssl command to create pem key
+once pem key > login to git siteadmin > management console > Authentication > upload pemkey
+
+Note:  pfx is a secure pkcs#12 file with password protected - commonly used for securely export and import privare keys
+
+
 # Why GitHub upgrades - 
- To ensure you benefit from latest security patches, features, and bug fixes while minimizing  the potential disruption of larger version jumps.
+ To ensure you benefit from latest security patches, features, and bug fixes while minimizing the potential disruption of larger version jumps.
 
-# what actions when we upgarde GitLab servers
-  Most helpful actions include : backup craetion > testing lower environment > following recommended upgrade Path > utilizing maintenance mode during the upgrade > carefully managing backups> rollback plan in case of any issues > essentially planning and controlled process to minimize downtime and potential disruptions to user
+# what actions when we upgarde Git servers
+  Most helpful actions include : 
+    Backup craetion > testing lower environment > following recommended upgrade Path > utilizing maintenance mode during the upgrade > carefully managing backups> rollback plan in    case of any issues > essentially planning and controlled process to minimize downtime and potential disruptions to user
 
-  Inform users via communication channel on GitHub channel  ( broadcast messages )
-  enable maintainence mode > backup> Stop repilica mode > download package and upgrade ( ghe-upgrade)
+  
+  
+  enable maintainence mode > backup > Stop repilica mode > download package and upgrade ( ghe-upgrade)
+  
   ghe-cluster-maintanence -s
   ghe-cluster-staus
   curl -L -O <packege>
+  ghe-replica-stop
   ghe-upgarde <package>
+  ghe-replica-start
+
+  Actions to perform before change implement to save time and maintian communication with users/teams
+
+     sanapshot/backup request
+     check diskspace is > 15% $df -h 
+     download package from nexus
+     Inform users via communication channel on GitHub channel
+  
+  Actions to perform to implement upgrade
+     - Take snapshot (backup)
+     - enable maintainence mode
+     - stop replica mode ( cluster - multi nodes)
+     - upgarde package
+     
+     
+     
 
 # hostnamectl > linux (os type and version)
 # Github servers are cluster ( mutliple nodes - have moth primary and secondary) ?
@@ -125,6 +153,8 @@ https://stackoverflow.com/questions/11621768/how-can-i-make-git-accept-a-self-si
   - before merging they need to check for changes in remote brach > git pull to ensure for any changes by other developer
   - if there are any changes dev should merge
   - Test locally and then make a PR
+ 
+
 
 
 
