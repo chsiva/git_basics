@@ -47,9 +47,25 @@ Actions to perform to implement upgrade
     https://geshan.com.np/blog/2016/04/3-simple-rules-for-less-or-no-git-conflicts/
 
 # Git issues during work
-    1. # SSl Certificate Issue
+    1. SSl Certificate Issue
          https://stackoverflow.com/questions/11621768/how-can-i-make-git-accept-a-self-signed-certificate
+         - Recommendeed: get the cert and install # git config --global http.sslCAInfo /path/to/cert.pem.
+         - not recommended but to proceed further use command $git -c http.sslVerify=false clone https://example.com/path/to/git
 
+     2. GitHub Api rate limit exceeded
+        incrase request submitted  - 5000 per token using below link
+        https://docs.github.com/en/enterprise-server@3.17/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits
+        Created Personal access token > Github developer setting > Clssic token (copied and saved) >Configure sso (allowing token to read repos isndide org via API)
+        PAT (token) > Configure on Jenkins ( Manage credential under Global section )
+
+    3. Account suspended
+        Cause/Resolution: 
+           - not login for more than 90 days  [ site admin >webhooks > user email > unsuspend
+           - contractor converted to FTE ( name might contain xt) [ update saml nameID unter under siteadmin/<user-id> ]
+
+    4. unable to clone or  403 unauthorized access
+        - see network credentials stored on windows/Mac
+        - clone repo and pass token using httpsurl
 
 
 # git ( initialing git repo and adding or creating files inside git repo
