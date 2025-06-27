@@ -1,3 +1,9 @@
+# Git version & disk
+    3.7.19 (8.4 gb) > 3.11.13 (9.8 gb)
+    hostnamectl > linux (os type and version)
+    Github servers are cluster ( mutliple nodes - have moth primary and secondary) ?
+    server disk size >  Dev ( 300 G ) ||  Prod (3 TB)
+    
 # Git certificate Management
      Go to venafi
      get .pfx file
@@ -15,17 +21,6 @@
     Most helpful actions include : 
     Backup craetion > testing lower environment > following recommended upgrade Path > utilizing maintenance mode during the upgrade > carefully managing backups> rollback plan in    case of any issues > essentially planning and controlled process to minimize downtime and potential disruptions to user
 
-  
-  
- 
-  
-  ghe-cluster-maintanence -s
-  ghe-cluster-staus
-  curl -L -O <packege>
-  ghe-replica-stop
-  ghe-upgarde <package>
-  ghe-replica-start
-
   Actions to perform before change implement to save time and maintian communication with users/teams
 
      sanapshot/backup request
@@ -42,22 +37,20 @@ Actions to perform to implement upgrade
      - upgarde package ghe-upgarde <package-url.pkg
      - upgrade in Dev taken 15 mins & 5 mins to reboot
      - upgrade in Pr5od taken 15 mins & 5 mins to reboot
-     
-     
-     
-
-# hostnamectl > linux (os type and version)
-# Github servers are cluster ( mutliple nodes - have moth primary and secondary) ?
-# server disk size >  Dev ( 300 G ) ||  Prod (3 TB)
+     - start replica # ghe-replica-start
 
  
+# Avoid merge conflicts
 
-# avoid merge conflicts
+    Each developer should clone repo, before any change to the branch, developer should perform pull operation > Any new changes should be fetched and 
+    
+    https://geshan.com.np/blog/2016/04/3-simple-rules-for-less-or-no-git-conflicts/
 
-Each developer should clone repo, before any change to the branch, developer should perform pull operation > Any new changes should be fetched and 
+# Git issues during work
+    1. # SSl Certificate Issue
+         https://stackoverflow.com/questions/11621768/how-can-i-make-git-accept-a-self-signed-certificate
 
 
-https://geshan.com.np/blog/2016/04/3-simple-rules-for-less-or-no-git-conflicts/
 
 # git ( initialing git repo and adding or creating files inside git repo
 git init
@@ -151,15 +144,9 @@ You might rebase a shared branch if everyone on the team is aware of it and unde
 For example, assume that you have a series of n commits.
 By squashing you can make all the n-commits to a single commit.
 
-# SSl Certificate Issue
-https://stackoverflow.com/questions/11621768/how-can-i-make-git-accept-a-self-signed-certificate
 
-# Avoid "merge conflicts" https://dev.to/samuyi/how-to-avoid-merge-conflicts-3j8d
-* Solution: 
-  - Each developer should clone repo
-  - before merging they need to check for changes in remote brach > git pull to ensure for any changes by other developer
-  - if there are any changes dev should merge
-  - Test locally and then make a PR
+
+
  
 
 
