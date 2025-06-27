@@ -3,6 +3,15 @@
     hostnamectl > linux (os type and version)
     Github servers are cluster ( mutliple nodes - have moth primary and secondary) ?
     server disk size >  Dev ( 300 G ) ||  Prod (3 TB)
+
+# Git operations
+    git clone <repo-url>
+    git checkout -b <branch-name> 
+    git branch
+    git status
+    git add .
+    git commit -m "addeded new files/data"
+    git push origin master
     
 # Git certificate Management
      Go to venafi
@@ -14,21 +23,21 @@
      Note:  pfx is a secure pkcs#12 file with password protected - commonly used for securely export and import privare keys
 
 
-# Why GitHub upgrades - 
+# GitHub upgrades
     To ensure you benefit from latest security patches, features, and bug fixes while minimizing the potential disruption of larger version jumps.
 
-# what actions when we upgarde Git servers
+    what actions when we upgarde Git servers
     Most helpful actions include : 
-    Backup craetion > testing lower environment > following recommended upgrade Path > utilizing maintenance mode during the upgrade > carefully managing backups> rollback plan in    case of any issues > essentially planning and controlled process to minimize downtime and potential disruptions to user
+    Backup craetion > testing lower environment > following recommended upgrade Path > utilizing maintenance mode during the upgrade > carefully managing backups> rollback plan in         case of any issues > essentially planning and controlled process to minimize downtime and potential disruptions to user
 
-  Actions to perform before change implement to save time and maintian communication with users/teams
+    Actions to perform before change implement to save time and maintian communication with users/teams
 
-     sanapshot/backup request
-     check diskspace is > 15% # $df -h ()
-     download package from nexus # curl -L -O <packege> [ size of pkg ranges from 7 -10 GB ]
-     Inform users via communication channel on GitHub channel
+     - sanapshot/backup request
+     - check diskspace is > 15% # $df -h ()
+     - download package from nexus # curl -L -O <packege> [ size of pkg ranges from 7 -10 GB ]
+     - Inform users via communication channel on GitHub channel
   
-Actions to perform to implement upgrade
+    Actions to perform to implement upgrade
 
      - Take snapshot/backup
      - enable maintainence mode # ghe-cluster-maintanence -s
@@ -63,9 +72,15 @@ Actions to perform to implement upgrade
            - not login for more than 90 days  [ site admin >webhooks > user email > unsuspend
            - contractor converted to FTE ( name might contain xt) [ update saml nameID unter under siteadmin/<user-id> ]
 
-    4. unable to clone or  403 unauthorized access
+    4. unable to clone or  403 unauthorized access or repo access
         - see network credentials stored on windows/Mac
         - clone repo and pass token using httpsurl
+        - repo access is controlled via ad groups and user should be member of it
+        - Even user is member already but group is not synched with repo or proper permisisons were not setup
+            not synched adgroup with repo > 
+
+
+            
 
 
 # git ( initialing git repo and adding or creating files inside git repo
