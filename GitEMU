@@ -64,7 +64,6 @@ branches:
 
 
 
-
 | Feature                   | Composite Actions (using: "composite")   | Reusable Workflows (`workflow_call`)     |
 | ------------------------- | ---------------------------------------- | ---------------------------------------- |
 | Purpose                   | Reuse a sequence of steps in **one job** | Reuse **entire workflows or jobs**       |
