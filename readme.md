@@ -48,12 +48,35 @@ git add <filename>
 | Make feature branch history clean before PR | `git rebase`             |
 | Collapse messy local commits into one       | `git rebase -i` (squash) |
 
+
+
+You're right, both git pull and git rebase are used to update your local branch with changes from a remote repository. However, the way they achieve this differs and has implications for your commit history. 
+
+Here's the key difference:
+ git pull (by default):
+   Fetches and merges: git pull is a combination of two commands: git fetch and git merge.
+   Creates merge commits: By default, it fetches the latest changes from the remote and then merges them into your current branch. This process creates a new "merge commit" to combine    the histories of both branches.
+   Non-linear history: The merge commits result in a non-linear commit history, which shows how branches diverged and converged.
+   Preserves history: This approach preserves the complete history, including all merge commits. 
+ git rebase (or git pull --rebase):
+   Rewrites history: git rebase moves or combines a sequence of commits to a new base commit.
+   Applies changes on top: It takes your local commits and reapplies them on top of the latest commit from the target branch (e.g., the remote's main branch).
+   Linear history: This creates a linear history that makes it look like you started your work from the latest version of the target branch.
+   Avoids merge commits: It avoids creating extra merge commits, resulting in a cleaner and simpler commit history. 
+ In summary:
+  git pull combines fetch and merge, creating merge commits and a potentially non-linear history.
+  git rebase (or git pull --rebase) rewrites history by applying your commits on top of the target branch, resulting in a linear history without merge commits. 
+  Choosing between git pull and git rebase:
+
+
 # git clone with ssh vs clone with https
 with https no need any authentication
 with ssh we need authenticate -> generate ssh keys in local -> copy rsa.pub -> paste it in github/settings/ssh-key
 
 # Forking
 A fork is a copy of a repository that allows you to freely experiment with changes without affecting the original project.
+
+
 
 #Branch protection rules
 
