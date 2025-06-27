@@ -26,6 +26,7 @@ jobs: # 3. Define jobs
       - name: Build # Step name
         run: npm run build # Run a command
 
+
 Workflows : A workflow is a configurable automated process that will run one or more jobs.
 Jobs: A set of steps run sequentially on the same runner
 Steps: Individual task within a job (e.g., run a script, checkout code).
