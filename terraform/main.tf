@@ -5,5 +5,5 @@ resource "null_resource" "get_hostname" {
 }
 
 output "local_hostname" {
-  value = resource.null_resource.get_hostname.triggers["command_output"]
+  value = resource.null_resource.get_hostname
 }
