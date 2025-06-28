@@ -211,3 +211,19 @@ jobs:
 | `pull_request`      | Runs when a PR is opened, synchronized, or reopened | 🚀 Automatic  | Validate PRs before merging              | ❌               |
 | `schedule`          | Runs on a cron schedule (UTC time)                  | 🕒 Automatic  | Nightly builds, dependency updates       | ❌               |
 | `workflow_dispatch` | Runs only when manually triggered via GitHub UI/API | ✅ Manual      | On-demand tests, deployments, patch jobs | ✅ Yes           |
+
+
+# Workflow create
+  option: Actions > Create new workflow option > create workflow/simple workflow by GitHub ( your repo)
+
+# Integrate with Terraform
+
+  option1: Actions > Create new workflow option > under deployments category > Terraform
+  
+
+# Integrate checkmarx/Sonarqube/Veracode
+
+  options: Actions > Create new workflow option > under security category > checkmarx/Sonarqube/Veracode
+
+# Integration workflow with actions from marketplace
+  https://github.com/marketplace
