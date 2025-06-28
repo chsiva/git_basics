@@ -3,44 +3,36 @@
      Automates workflows triggered by GitHub events (push, PR, schedule, etc.).
      Uses YAML files to define jobs and steps in workflows.
 
-name: Node.js CI # 1. Name of the workflow
-on: [push] # 2. Trigger on push events
-jobs: # 3. Define jobs
-  build: # 4. Define a job named 'build'
-    runs-on: ubuntu-latest # Runner environment
-    steps: # 5. Define steps within the job
-      - name: Checkout Repository # Step name
-        uses: actions/checkout@v4 # Use a reusable action
+### Summary Table (Componnents in Git Actions)
 
-      - name: Set up Node.js # Step name
-        uses: actions/setup-node@v4 # Use a reusable action
-        with:
-          node-version: "20" # Configure the action
+        | Component            | Common Name      | Identifier Example         |
+        |---------------------|-------------------|----------------------------|
+        | Workflow            | Workflow          | `name: CI/CD Pipeline`     |
+        | Event               | Events            | `on: push`                 |
+        | Job                 | Job               | `build-job:`               |
+        | Step                | Step              | `- name: Checkout code`    |
+        | Environment Variable | Environment      | `env: NODE_ENV: production`|
+        | Output              | Output            | `outputs: build_number`    |
+        | Input               | Input             | `inputs: branch:`          |
 
-      - name: Install Dependencies # Step name
-        run: npm install # Run a command
+       Note: In GitHub Actions, identifiers are the names you use to refer to various components within your workflow.
+   
 
-      - name: Run Tests # Step name
-        run: npm test # Run a command
+# Identifiers (Names) must follow certain naming conventions:
+    - No spaces or special characters (other than dashes and underscores).
+    - Must be unique within the same context (e.g., each job name must be unique within a workflow).
 
-      - name: Build # Step name
-        run: npm run build # Run a command
-
-
-Workflows : A workflow is a configurable automated process that will run one or more jobs.
-Jobs: A set of steps run sequentially on the same runner
-Steps: Individual task within a job (e.g., run a script, checkout code).
 
 # How do you trigger a GitHub Actions workflow?
   On GitHub events like push, pull_request, workflow_dispatch, schedule, release, etc.
   Can specify filters like branches, tags, or paths.
-on:
-push:
-branches:
- - main
-pull_request:
-branches:
- - develop
+       on:
+       push:
+       branches:
+         - main
+       pull_request:
+       branches:
+         - develop
 
 # What runners are available in GitHub Actions?
   - GitHub-hosted runners: Provided by GitHub, pre-configured VM images (Linux, Windows, macOS).
