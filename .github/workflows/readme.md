@@ -15,6 +15,10 @@
            but requires a final manual step before releasing to production.
       - Continuous Deployment: Automates the entire process, including the release to production, 
            once the code passes all tests. 
+     In essence:
+     Continuous Delivery: You have the capability to deploy to production at any time, but you choose when to do so manually.
+                 Ex: Octoppus Deployand IBM UrbanCode Deploy (Udeploy)
+     Continuous Deployment: Every successful code change is automatically deployed to production. 
     
 
     
