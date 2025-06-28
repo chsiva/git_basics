@@ -1,5 +1,9 @@
 # GitHub Actions: 
-    GitHub Actions is a robust continuous integration and continuous delivery (CI/CD) platform natively integrated within GitHub, allowing for automation of the software development lifecycle directly from the repository. Workflows, defined in YAML files, can be triggered by various events like code pushes or pull requests and execute build, test, and deployment jobs on either GitHub-hosted or self-hosted runners. This enables teams to automate critical tasks, streamline workflows, enhance collaboration through immediate feedback, and deploy applications efficiently, all while leveraging a vast marketplace of reusable actions for tasks such as linting, testing, and cloud deployments.
+    GitHub Actions is a robust continuous integration and continuous delivery (CI/CD) platform natively integrated within GitHub, 
+    allowing for automation of the software development lifecycle directly from the repository. 
+    Workflows, defined in YAML files, can be triggered by various events like code pushes or pull requests 
+    and execute build, test, and deployment jobs on either GitHub-hosted or self-hosted runners. 
+    This enables teams to automate critical tasks, streamline workflows, enhance collaboration through immediate feedback, and deploy applications efficiently, all while leveraging a vast marketplace of reusable actions for tasks such as linting, testing, and cloud deployments.
  # SDLC
     https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fsoftware-development-life-cycle-sdlc%2F&psig=AOvVaw18ckdfG0Ig913ao3LBJsdY&ust=1751227031193000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJC-_qTzlI4DFQAAAAAdAAAAABAI
 ### Summary Table (Componnents in Git Actions)
