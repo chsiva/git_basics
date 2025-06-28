@@ -73,10 +73,12 @@
 
 
 # How do you pass secrets and environment variables in GitHub Actions?
-  On Repo settings > Actions secrets and variables
+  On Repo settings > secrets and variables > Actions > secrets
    - Use GitHub Secrets to store sensitive data securely.
    - Access secrets in workflow via ${{ secrets.SECRET_NAME }}.
    - Can also set environment variables at workflow, job, or step level.
+
+*** Env/Repo variables: On Repo settings > secrets and variables > Actions > Variables ***
 
      name: Example workflow
      on: [push]
@@ -92,6 +94,9 @@
            run: |
               echo "Global variable: $GLOBAL_VAR" # Access global variable
 
+    Note: Repository Variables are Available to all workflows and jobs within that repository.
+    Note2: Environment Variabnles ( Dev/QA/Prod) are Limited to the scope (workflow, job, or step) where they are defined.
+    
 # How can you reuse code or workflows in GitHub Actions?
   1. Reusable Workflow (.github/workflows/reusable.yml)
   2. Use workflow_call event to call reusable workflows
