@@ -21,7 +21,12 @@
                  Ex: Jenkins, Git Lab
     
 
-    
+# Workflow vs Job VS Action
+     A workflow is the entire process that is automated, triggered by an event. 
+    It is composed of jobs, which are sets of steps that perform related tasks. 
+    Each step within a job can either run a script or execute an action, 
+      which is a reusable unit of code that performs a specific task. 
+    (actions are the individual tasks or steps that a workflow performs)
  
 ### Summary Table (Componnents in Git Actions)
 
