@@ -5,20 +5,20 @@
     and execute build, test, and deployment jobs on either GitHub-hosted or self-hosted runners. 
     This enables teams to automate critical tasks, streamline workflows, enhance collaboration through immediate feedback, and deploy applications efficiently, all while leveraging a vast marketplace of reusable actions for tasks such as linting, testing, and cloud deployments.
 
-    software development lifecycle (SDLC):
+# software development lifecycle (SDLC):
      - Requirements gathering > Development (Design) > Implementation > Testing (QA analysis) > Deployment > Maintenance
      
-    continuous integration and continuous delivery (CI/CD):
-
+# continuous integration and continuous delivery (CI/CD):
       - CI: Focuses on getting code integrated and tested frequently to ensure quality and prevent integration issues early on.
       - Continuous Delivery: Ensures that the codebase is always ready to be deployed, 
-           but requires a final manual step before releasing to production.
+           but requires a "final manual step" before releasing to production.
       - Continuous Deployment: Automates the entire process, including the release to production, 
            once the code passes all tests. 
      In essence:
      Continuous Delivery: You have the capability to deploy to production at any time, but you choose when to do so manually.
                  Ex: Octoppus Deployand IBM UrbanCode Deploy (Udeploy)
      Continuous Deployment: Every successful code change is automatically deployed to production. 
+                 Ex: Jenkins, Git Lab
     
 
     
