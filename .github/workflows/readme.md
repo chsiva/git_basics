@@ -59,6 +59,14 @@
        branches:
          - develop
 
+  | Trigger             | Description                                         | Manual / Auto | Common Use Cases                         | Supports Inputs |
+| ------------------- | --------------------------------------------------- | ------------- | ---------------------------------------- | --------------- |
+| `push`              | Runs on `git push` to specified branches/tags       | 🚀 Automatic  | Run CI on every code push                | ❌               |
+| `pull_request`      | Runs when a PR is opened, synchronized, or reopened | 🚀 Automatic  | Validate PRs before merging              | ❌               |
+| `schedule`          | Runs on a cron schedule (UTC time)                  | 🕒 Automatic  | Nightly builds, dependency updates       | ❌               |
+| `workflow_dispatch` | Runs only when manually triggered via GitHub UI/API | ✅ Manual      | On-demand tests, deployments, patch jobs | ✅ Yes           |
+
+
 # What runners are available in GitHub Actions?
   - GitHub-hosted runners: Provided by GitHub, pre-configured VM images (Linux, Windows, macOS).
   - Self-hosted runners: Your own machines/servers you configure to run workflows.
@@ -222,12 +230,6 @@ jobs:
         run: npm test
 
 
-| Trigger             | Description                                         | Manual / Auto | Common Use Cases                         | Supports Inputs |
-| ------------------- | --------------------------------------------------- | ------------- | ---------------------------------------- | --------------- |
-| `push`              | Runs on `git push` to specified branches/tags       | 🚀 Automatic  | Run CI on every code push                | ❌               |
-| `pull_request`      | Runs when a PR is opened, synchronized, or reopened | 🚀 Automatic  | Validate PRs before merging              | ❌               |
-| `schedule`          | Runs on a cron schedule (UTC time)                  | 🕒 Automatic  | Nightly builds, dependency updates       | ❌               |
-| `workflow_dispatch` | Runs only when manually triggered via GitHub UI/API | ✅ Manual      | On-demand tests, deployments, patch jobs | ✅ Yes           |
 
 
 # Workflow create
