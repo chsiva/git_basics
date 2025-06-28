@@ -78,6 +78,20 @@
    - Access secrets in workflow via ${{ secrets.SECRET_NAME }}.
    - Can also set environment variables at workflow, job, or step level.
 
+     name: Example workflow
+     on: [push]
+     env:
+       GLOBAL_VAR: 'GlobalValue' # Workflow-level variable
+     jobs:
+       example_job:
+         runs-on: ubuntu-latest
+         env:
+           JOB_VAR: 'JobSpecificValue' # Job-level variable
+         steps:
+         - name: Use global and job-specific variables
+           run: |
+              echo "Global variable: $GLOBAL_VAR" # Access global variable
+
 # How can you reuse code or workflows in GitHub Actions?
   1. Reusable Workflow (.github/workflows/reusable.yml)
   2. Use workflow_call event to call reusable workflows
