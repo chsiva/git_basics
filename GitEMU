@@ -219,6 +219,8 @@ jobs:
 # Integrate with Terraform
 
   option1: Actions > Create new workflow option > under deployments category > Terraform
+
+  https://github.com/hashicorp/setup-terraform#
   
 
 # Integrate checkmarx/Sonarqube/Veracode
