@@ -4,8 +4,21 @@
     Workflows, defined in YAML files, can be triggered by various events like code pushes or pull requests 
     and execute build, test, and deployment jobs on either GitHub-hosted or self-hosted runners. 
     This enables teams to automate critical tasks, streamline workflows, enhance collaboration through immediate feedback, and deploy applications efficiently, all while leveraging a vast marketplace of reusable actions for tasks such as linting, testing, and cloud deployments.
- # SDLC
-    https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.softwaretestinghelp.com%2Fsoftware-development-life-cycle-sdlc%2F&psig=AOvVaw18ckdfG0Ig913ao3LBJsdY&ust=1751227031193000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJC-_qTzlI4DFQAAAAAdAAAAABAI
+
+    software development lifecycle (SDLC):
+     - Requirements gathering > Development (Design) > Implementation > Testing (QA analysis) > Deployment > Maintenance
+     
+    continuous integration and continuous delivery (CI/CD):
+
+      - CI: Focuses on getting code integrated and tested frequently to ensure quality and prevent integration issues early on.
+      - Continuous Delivery: Ensures that the codebase is always ready to be deployed, 
+           but requires a final manual step before releasing to production.
+      - Continuous Deployment: Automates the entire process, including the release to production, 
+           once the code passes all tests. 
+    
+
+    
+ 
 ### Summary Table (Componnents in Git Actions)
 
         | Component            | Common Name      | Identifier Example         |
