@@ -221,6 +221,40 @@ jobs:
   option1: Actions > Create new workflow option > under deployments category > Terraform
 
   https://github.com/hashicorp/setup-terraform#
+
+name: Terraform
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2  # it is the action that will get the terraform installed
+        with:
+          terraform_version: 1.0.0 # Specify the desired Terraform version
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        if: github.event_name == 'pull_request'
+        run: terraform plan -out tfplan
+
+      - name: Terraform Apply
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: terraform apply -auto-approve
+
   
 
 # Integrate checkmarx/Sonarqube/Veracode
