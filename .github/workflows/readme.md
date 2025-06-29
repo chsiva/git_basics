@@ -73,6 +73,10 @@
 
 
 # How do you pass secrets and environment variables in GitHub Actions?
+    - Use GitHub Secrets to store sensitive data securely.
+    - Access secrets in workflow via ${{ secrets.SECRET_NAME }}.
+    - Can also set environment variables at workflow, job, or step level.
+
 
 *** On Repo settings > secrets and variables > Actions > secrets ***
     
@@ -95,10 +99,7 @@
     Note: You can the values now for ex: ${{env.WIF_PROVIDER}} & ${{env.service_account}}
     
           
-   - Use GitHub Secrets to store sensitive data securely.
-   - Access secrets in workflow via ${{ secrets.SECRET_NAME }}.
-   - Can also set environment variables at workflow, job, or step level.
-
+  
 *** Env/Repo variables: On Repo settings > secrets and variables > Actions > Variables ***
 
      name: Example workflow
@@ -156,7 +157,50 @@ jobs:
 
 # What is the difference between jobs.<job_id>.needs and jobs.<job_id>.strategy.matrix?
   - needs: Defines job dependencies; a job waits for others to finish.
+    
+            jobs:
+              build:
+                runs-on: ubuntu-latest
+                steps:
+                  - name: Build
+                    run: echo "Building..."
+            
+              test:
+                runs-on: ubuntu-latest
+                needs: build  # This job depends on the 'build' job
+                steps:
+                  - name: Test
+                    run: echo "Testing..."
+            
+              deploy:
+                runs-on: ubuntu-latest
+                needs: [build, test]  # This job depends on both 'build' and 'test'
+                steps:
+                  - name: Deploy
+                    run: echo "Deploying..."
+
+    
   - strategy.matrix: Runs the same job with different configurations (e.g., different OS or language versions).
+
+        jobs:
+          build-and-test:
+            runs-on: ${{ matrix.os }} # Use a matrix variable for the runner OS
+            strategy:
+              matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest] # Test on different OS
+                node-version: [14.x, 16.x, 18.x] # Test with different Node.js versions
+            steps:
+              - name: Checkout code
+                uses: actions/checkout@v4
+              - name: Set up Node.js ${{ matrix.node-version }} # Access the matrix variable
+                uses: actions/setup-node@v4
+                with:
+                  node-version: ${{ matrix.node-version }}
+              - name: Install dependencies
+                run: npm install
+              - name: Run tests
+                run: npm test
+
 
 # How do you handle failure or retry in GitHub Actions?
   *** Use continue-on-error to ignore step failures (ignore errors) ***
@@ -197,6 +241,7 @@ jobs:
           echo "Another normal message"
           
     - Run workflows locally using tools like act.
+    
     - Add verbose logging in your scripts.
         #!/bin/bash
         
@@ -236,13 +281,58 @@ jobs:
       Artifacts are temporarily stored on the runner’s local disk (e.g., /home/runner/work/repo-name/).
       Once the job ends, the runner is destroyed, and the files are lost unless uploaded.
 
+    Yes, you can export or store your GitHub Actions build artifacts for longer periods than the default retention offered by GitHub.
+    GitHub Actions provides the actions/upload-artifact and actions/download-artifact actions to manage artifacts. 
+    By default, GitHub retains build logs and artifacts for 90 days, and this retention period can be customized. 
+    For private repositories, this can be extended up to 400 days. 
+
+    However, if you need to store artifacts for longer durations 
+       or require a separate storage solution, here's how you can achieve that: 
+       - Artifacts can be exported to S3/GCS buckets.
+       - Artifact repository like Jfrog
 
 
 # Why Use Caching in Workflows?
-  Caching reduces:
-    - Dependency installation time (e.g., npm install, pip install, maven install)
-    - Rebuilding or re-downloading large files
-    - CI/CD costs (faster builds = fewer compute minutes)
+      Caching reduces:
+        - Dependency installation time (e.g., npm install, pip install, maven install)
+        - Rebuilding or re-downloading large files
+        - CI/CD costs (faster builds = fewer compute minutes)
+
+    GitHub Actions caching can significantly speed up your workflows by reusing files and dependencies between runs. This is particularly useful for things like project dependencies (e.g., node_modules, vendor directories), which can take a long time to download or build. 
+        Here's a breakdown of how to use caching in your workflows:
+        1. Use the actions/cache action: 
+        GitHub provides a dedicated action for caching, called actions/cache.
+        You'll add this action to your workflow's steps to set up caching. 
+        2. Specify the path to cache: 
+        This is the directory or files you want to cache (e.g., node_modules for Node.js projects, vendor for PHP Composer dependencies).
+        You can specify a single path or multiple paths on separate lines.
+        Glob patterns are supported. 
+        3. Define a key for the cache: 
+        This key uniquely identifies the cache entry.
+        It can be a static string or a dynamic string constructed using expressions.
+        To ensure the cache is updated when dependencies change, you can include the hash of your dependency lock file (e.g., package-lock.json, composer.lock) in the key using the hashFiles function.
+        Including the runner OS in the key is also a good practice to prevent issues with different operating systems or environments. 
+        4. Consider using restore-keys: 
+        These are fallback keys that GitHub Actions uses if an exact match isn't found for the primary key.
+        They are used to restore from partially matching caches.
+        restore-keys can help when restoring caches from other branches because they allow for partial matches. 
+        5. Example (Node.js):
+
+        jobs:
+          build:
+            runs-on: ubuntu-latest
+            steps:
+            - uses: actions/checkout@v3
+            - name: Cache node_modules
+              uses: actions/cache@v4 # Use the appropriate version
+              with:
+                path: node_modules
+                key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                restore-keys: |
+                  ${{ runner.os }}-node-
+            - name: Install Dependencies
+              run: npm install
+            # ... other steps ...    
 
 
 | Feature                       | **GitHub Actions**                            | **GitLab CI/CD**                                                    |
