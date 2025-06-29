@@ -73,7 +73,23 @@
 
 
 # How do you pass secrets and environment variables in GitHub Actions?
-  On Repo settings > secrets and variables > Actions > secrets
+    On Repo settings > secrets and variables > Actions > secrets
+    - name: set wif values based on environemnt
+      run: |
+        if [[ "${{ github.event.inputs.environment }}" == "dev" ]]; then
+          echo "WIF_PROVIDER=${{ secrets.WIF_PROVIDER_DEV }} >> $GITHUB_ENV
+          echo "WIF_service_account=${{ secrets.WIF_service_account }} >> $GITHUB_ENV
+        elif [[ "${{ github.event.inputs.environment }}" == "qa" ]]; then
+          echo "WIF_PROVIDER=${{ secrets.WIF_PROVIDER_DEV }} >> $GITHUB_ENV
+          echo "WIF_service_account=${{ secrets.WIF_service_account }} >> $GITHUB_ENV
+        elif [[ "${{ github.event.inputs.environment }}" == "prod" ]]; then
+          echo "WIF_PROVIDER=${{ secrets.WIF_PROVIDER_DEV }} >> $GITHUB_ENV
+          echo "WIF_service_account=${{ secrets.WIF_service_account }} >> $GITHUB_ENV
+        else 
+          echo "Invalid environemnt"
+          exit 1
+        fi
+          
    - Use GitHub Secrets to store sensitive data securely.
    - Access secrets in workflow via ${{ secrets.SECRET_NAME }}.
    - Can also set environment variables at workflow, job, or step level.
