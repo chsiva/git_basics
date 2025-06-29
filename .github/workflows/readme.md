@@ -185,28 +185,37 @@ jobs:
      Note: Currently, no native retry, but you can script retries or use marketplace actions.
 
 # How do you debug failed GitHub Actions runs?
+
     - Check logs on GitHub Actions UI.
+    
     - Use ::debug:: commands in workflow scripts.
+       steps:
+      - name: Debugging step
+        run: |
+          echo "This is a normal log message"
+          echo "::debug::This is a debug message that will appear when debugging is enabled."
+          echo "Another normal message"
+          
     - Run workflows locally using tools like act.
     - Add verbose logging in your scripts.
-      #!/bin/bash
-
-# This command will not be printed
-echo "Starting my script"
-
-# Enable verbose logging
-set -x 
-
-# These commands will be printed before execution
-echo "Executing some commands..."
-ls -l /tmp/my_directory
-pwd
-
-# Disable verbose logging
-set +x
-
-# This command will not be printed
-echo "Script finished"
+        #!/bin/bash
+        
+        # This command will not be printed
+        echo "Starting my script"
+        
+        # Enable verbose logging
+        set -x 
+        
+        # These commands will be printed before execution
+        echo "Executing some commands..."
+        ls -l /tmp/my_directory
+        pwd
+        
+        # Disable verbose logging
+        set +x
+        
+        # This command will not be printed
+        echo "Script finished"
       
 
 # How do you control access and permissions in GitHub Actions?
