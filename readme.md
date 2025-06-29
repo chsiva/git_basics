@@ -24,7 +24,8 @@
 
 
 # GitHub upgrades
-    To ensure you benefit from latest security patches, features, and bug fixes while minimizing the potential disruption of larger version jumps.
+    To ensure you benefit from latest security patches, features, 
+       and bug fixes while minimizing the potential disruption of larger version jumps.
 
     what actions when we upgarde Git servers
     Most helpful actions include : 
