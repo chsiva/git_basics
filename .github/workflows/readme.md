@@ -159,16 +159,55 @@ jobs:
   - strategy.matrix: Runs the same job with different configurations (e.g., different OS or language versions).
 
 # How do you handle failure or retry in GitHub Actions?
-  - Use continue-on-error to ignore step failures.
+  *** Use continue-on-error to ignore step failures (ignore errors) ***
+  
+      - name: Step that can fail
+        id: potentially_failing_step # Give it an ID to reference its status
+        run: |
+          echo "This step might fail"
+          # Simulate a failure
+          exit 1
+        continue-on-error: true # Allow this step to fail
+        
   - Use if conditionals to run steps/jobs conditionally.
+
+        - name: Run this step only if a previous step succeeded
+          if: steps.previous_step_id.outcome == 'success' # Check the outcome of a step with the ID 'previous_step_id'
+          run: echo "This runs after previous_step_id succeeded"
+
   - Use jobs.<job_id>.timeout-minutes to limit execution time.
-  Currently, no native retry, but you can script retries or use marketplace actions.
+
+          jobs:
+            my-job: # Replace 'my-job' with your job's ID
+              runs-on: ubuntu-latest
+              timeout-minutes: 30 # Set the timeout to 30 minutes
+            steps:
+     Note: Currently, no native retry, but you can script retries or use marketplace actions.
 
 # How do you debug failed GitHub Actions runs?
     - Check logs on GitHub Actions UI.
     - Use ::debug:: commands in workflow scripts.
     - Run workflows locally using tools like act.
     - Add verbose logging in your scripts.
+      #!/bin/bash
+
+# This command will not be printed
+echo "Starting my script"
+
+# Enable verbose logging
+set -x 
+
+# These commands will be printed before execution
+echo "Executing some commands..."
+ls -l /tmp/my_directory
+pwd
+
+# Disable verbose logging
+set +x
+
+# This command will not be printed
+echo "Script finished"
+      
 
 # How do you control access and permissions in GitHub Actions?
    - Use repository and organization level actions policies.
