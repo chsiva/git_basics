@@ -73,7 +73,9 @@
 
 
 # How do you pass secrets and environment variables in GitHub Actions?
-    On Repo settings > secrets and variables > Actions > secrets
+
+*** On Repo settings > secrets and variables > Actions > secrets ***
+    
     - name: set wif values based on environemnt
       run: |
         if [[ "${{ github.event.inputs.environment }}" == "dev" ]]; then
@@ -89,6 +91,9 @@
           echo "Invalid environemnt"
           exit 1
         fi
+
+    Note: You can the values now for ex: ${{env.WIF_PROVIDER}} & ${{env.service_account}}
+    
           
    - Use GitHub Secrets to store sensitive data securely.
    - Access secrets in workflow via ${{ secrets.SECRET_NAME }}.
