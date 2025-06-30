@@ -30,6 +30,7 @@ jobs: # 3. Define jobs
 Workflows : A workflow is a configurable automated process that will run one or more jobs.
 Jobs: A set of steps run sequentially on the same runner
 Steps: Individual task within a job (e.g., run a script, checkout code).
+Actions: individual tasks or components
 
 # How do you trigger a GitHub Actions workflow?
   On GitHub events like push, pull_request, workflow_dispatch, schedule, release, etc.
