@@ -18,9 +18,10 @@
      get .pfx file
      download
      upload ( winscp) to git server
-     use open ssl command to create pem key
-     once pem key > login to git siteadmin > management console > Authentication > upload pemkey
+     use open ssl command to create pem & cert key  [ openssl pkcs12 -nokeys -in <*.pfx> -out <*.pem/key>
+     once pem/key downloaded> login to git siteadmin > management console > Authentication > upload pem&key files > save settings
      Note:  pfx is a secure pkcs#12 file with password protected - commonly used for securely export and import privare keys
+     Note2: For any login issues/blocked ( run $ghe-reactivate-admin-login )
 
 
 # GitHub upgrades
