@@ -22,7 +22,10 @@
      once pem/key downloaded> login to git siteadmin > management console > Authentication > upload pem&key files > save settings
      Note:  pfx is a secure pkcs#12 file with password protected - commonly used for securely export and import privare keys
      Note2: For any login issues/blocked ( run $ghe-reactivate-admin-login )
-     Once Uploaded successfully, we can validate under site information in webrowser (top left) > Connection is secure > General Tab > Validity period
+    
+    Validation: Once Uploaded successfully, we can validate under site information in webrowser (top left) > 
+           Connection is secure > General Tab > Validity period
+            renewal usually done for 1 year
 
 
 # GitHub upgrades
